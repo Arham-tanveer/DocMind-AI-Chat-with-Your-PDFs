@@ -3,6 +3,8 @@ import { cn } from '../lib/utils'
 import { Inter, Geist } from 'next/font/google'
 import './globals.css'
 import Navbar from '../components/NavBar';
+import Providers from '../components/Providers';
+
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -16,6 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={cn("light", "font-sans", geist.variable)}>
+      <Providers>
         <body
           className={cn(
             'min-h-screen font-sans antialiased grainy',
@@ -25,6 +28,7 @@ export default function RootLayout({
           <Navbar/>
           {children}
         </body>
+        </Providers>
     </html>
   )
 }
